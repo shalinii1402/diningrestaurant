@@ -692,3 +692,103 @@ footer {
         height: 400px;
     }
 }
+
+/* Tasting Menu Hero */
+.tasting-hero {
+    background-image: url('../images/tasting-menu-hero.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+    margin-bottom: 80px;
+}
+
+.tasting-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Subtle dark overlay */
+    z-index: 1;
+}
+
+.tasting-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.tasting-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 24px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tasting-hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.95;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .tasting-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .tasting-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .tasting-hero p {
+        font-size: 1rem;
+    }
+}
+
+/* Stats Section Header */
+.stats-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stats-header h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+.stats-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    line-height: 1.8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .stats-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .stats-header {
+        margin-bottom: 40px;
+    }
+}
