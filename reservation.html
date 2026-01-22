@@ -18,9 +18,53 @@
             margin: 0 auto;
         }
 
-        button[type="submit"] {
+        /* Uniform Input Box Style */
+        .form-group {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group:focus-within {
+            border-color: var(--primary-color);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border: none !important;
+            padding: 5px 0 !important;
+            background: transparent !important;
             width: 100%;
-            margin-top: 10px;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* Button Adjustment */
+        button[type="submit"] {
+            width: auto;
+            /* Reduced from 100% */
+            min-width: 200px;
+            display: block;
+            margin: 20px auto 0 auto;
+            /* Centered */
+            padding: 12px 30px;
         }
 
         .error-message {
@@ -30,7 +74,13 @@
             display: none;
         }
 
+        /* Remove default border from error state as we use the group border */
         .form-control.error {
+            border: none;
+        }
+
+        /* Highlight group on error */
+        .form-group:has(.form-control.error) {
             border-color: #ff6b6b;
         }
     </style>
