@@ -348,12 +348,74 @@ header {
         margin-top: 10px;
     }
 
-    /* Home 2 Tablet Fixes */
+    /* Home 2 Tablet & Mobile Fixes */
     .reservation-grid,
     .contact-grid {
         gap: 30px;
     }
 }
+
+/* Specific Home 2 Mobile Query to fix Image Visibility and Stacking */
+@media (max-width: 768px) {
+
+    /* Home 2 Hero Specifics */
+    .home2-hero-container {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        /* Forces Image (2nd child) to be on TOP */
+        gap: 20px !important;
+    }
+
+    .home2-hero-image {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .home2-hero-image>div {
+        height: 300px !important;
+        /* Ensure image has explicit height on mobile */
+        max-width: 100% !important;
+    }
+
+    .home2-hero-text h1 {
+        font-size: 1.8rem !important;
+        /* Balanced size for mobile - not too small, not too big */
+        line-height: 1.2;
+    }
+
+    .home2-hero-text p {
+        font-size: 1rem !important;
+        max-width: 100% !important;
+    }
+
+    /* General responsive padding adjustments */
+    section {
+        padding: 40px 0 !important;
+        /* Reduce excessive spacing */
+        min-height: auto !important;
+        /* Allow sections to shrink */
+    }
+}
+
+/* Tablet Optimizations for Home 2 */
+@media (max-width: 1024px) {
+    .home2-hero {
+        padding-top: 120px !important;
+        /* Account for navbar */
+        min-height: auto !important;
+        padding-bottom: 40px !important;
+    }
+
+    .home2-hero-container {
+        gap: 30px;
+    }
+
+    /* Ensure no massive gaps throughout the page on tablet */
+    section {
+        padding: 50px 0;
+    }
+}
+
 
 @media (max-width: 968px) {
     .nav-links {
