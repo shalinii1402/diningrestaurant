@@ -1080,6 +1080,75 @@ footer {
     color: var(--text-color);
 }
 
+/* Experience Cards */
+.experience-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.experience-img-container {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.experience-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.experience-card:hover .experience-img-container img {
+    transform: scale(1.1);
+}
+
+.experience-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.experience-content h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.experience-content p {
+    opacity: 0.8;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Home 2 Experience Grid Responsive */
+@media (max-width: 900px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .experience-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 .contact-info-item {
     margin-bottom: 15px;
     font-size: 1.1rem;
