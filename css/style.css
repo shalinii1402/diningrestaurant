@@ -1086,11 +1086,20 @@ footer {
     opacity: 0.8;
 }
 
-.full-width-map {
-    width: 100%;
-    height: 450px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    margin-bottom: 60px;
+/* Tablet/Mobile Adjustments for Menu Page */
+@media (max-width: 900px) {
+    .menu-section {
+        margin-bottom: 50px !important;
+        /* Reduced from 80px */
+    }
+
+    .menu-title {
+        margin-bottom: 25px !important;
+        /* Reduced from 40px */
+        font-size: 2rem !important;
+    }
+
+    .tasting-hero {
+        margin-bottom: 40px !important;
+    }
 }
