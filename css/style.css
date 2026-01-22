@@ -480,13 +480,40 @@ header {
     }
 }
 
-/* Section Basics */
+/* Section Basics - Optimized Spacing */
 section {
-    padding: 80px 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 60px 0;
+    /* Reduced from 80px */
+    position: relative;
+    /* Ensure containment */
+}
+
+/* Global Heading Spacing & Consistency */
+h1,
+h2,
+h3 {
+    margin-bottom: 20px;
+    /* Standardized from 24px/various */
+}
+
+p {
+    margin-bottom: 20px;
+    /* Consistent paragraph spacing */
+}
+
+/* Tablet Optimizations */
+@media (max-width: 1024px) {
+    section {
+        padding: 50px 0;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0 !important;
+        /* Force compact spacing */
+    }
 }
 
 /* About Page Layout */
@@ -495,7 +522,8 @@ section {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
+    /* Reduced from 100px */
 }
 
 .about-content-grid.reverse {
@@ -512,7 +540,8 @@ section {
     .about-content-grid {
         display: flex;
         flex-direction: column;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
+        /* Further reduced for mobile */
         gap: 30px;
         direction: ltr !important;
         /* Ensure LTR on mobile so Image (1st in DOM) stays on top */
@@ -526,7 +555,8 @@ section {
 /* Footer */
 footer {
     background-color: var(--card-bg);
-    padding: 70px 0 20px;
+    padding: 60px 0 20px;
+    /* Reduced top padding */
     border-top: 1px solid var(--border-color);
     font-size: 0.95rem;
 }
@@ -535,7 +565,8 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    /* Reduced from 50px */
     text-align: left;
 }
 
@@ -1192,5 +1223,20 @@ footer {
 
     .tasting-hero {
         margin-bottom: 40px !important;
+    }
+}
+
+/* Signature Experience Grid */
+.signature-experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .signature-experience-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 }
