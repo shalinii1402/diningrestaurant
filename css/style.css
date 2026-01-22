@@ -695,7 +695,7 @@ footer {
 
 /* Tasting Menu Hero */
 .tasting-hero {
-    background-image: url('../images/tasting-menu-hero.png');
+    background-image: url('../images/fine-dining-hero-clean.png');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -718,7 +718,8 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
     /* Subtle dark overlay */
     z-index: 1;
 }
