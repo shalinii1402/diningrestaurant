@@ -514,9 +514,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    flex: 1;
     padding: 12px;
-    margin-bottom: 10px;
     border: 1px solid var(--border-color);
     border-radius: 50px;
     background-color: var(--card-bg);
@@ -531,6 +530,20 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-color: var(--primary-color);
+}
+
+.social-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 480px) {
+    .social-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 .social-btn img,
