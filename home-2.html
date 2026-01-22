@@ -59,18 +59,24 @@
     </header>
 
     <!-- Alternate Hero -->
-    <section style="display: flex; align-items: center; min-height: 80vh; padding-top: 100px;">
-        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-            <div class="fade-in">
+    <section style="display: flex; align-items: center; min-height: 80vh; padding-top: 100px; padding-bottom: 60px;">
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
+            <div class="fade-in" style="text-align: center;"> <!-- Centered align for better balance -->
                 <h1 style="font-size: 3.5rem; margin-bottom: 20px;">A Symphony of Taste & Texture</h1>
-                <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.8;">Inspired by global cuisines and refined
-                    techniques, our menu reflects creativity, balance, and excellence. Each plate is thoughtfully
-                    composed to delight both the eyes and the palate.</p>
-                <a href="menu.html" class="btn">View Menu</a>
+                <p
+                    style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Inspired by global cuisines and refined techniques, our menu reflects creativity, balance, and
+                    excellence. Each plate is thoughtfully composed to delight both the eyes and the palate.
+                </p>
+                <div style="text-align: center;"> <!-- Explicit Button Centering -->
+                    <a href="menu.html" class="btn">View Menu</a>
+                </div>
             </div>
             <div class="slide-in-left" style="position: relative;">
-                <div style="background: #333; height: 400px; width: 100%; border-radius: 20px; overflow: hidden;">
-                    <!-- Placeholder for Chef/Food Image -->
+                <div
+                    style="background: #333; height: 350px; width: 100%; max-width: 500px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+                    <!-- Reduced Image Size -->
                     <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
                         alt="Exquisite Dish" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -79,10 +85,13 @@
     </section>
 
     <!-- Chef Highlight -->
-    <section class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    <section class="container" style="padding-top: 40px; padding-bottom: 60px;">
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: flex-start;">
             <div class="fade-in">
                 <h2 style="margin-bottom: 24px;">Meet the Visionary Behind the Menu</h2>
+                <h4 style="margin-bottom: 20px; color: var(--primary-color);">Executive Chef Antoine R.</h4>
+                <!-- Added Content: Author Name -->
                 <p style="margin-bottom: 24px; line-height: 1.8; opacity: 0.8; font-size: 1.05rem;">
                     Our executive chef brings years of international experience and a deep-seated passion for innovation
                     to the kitchen. With a focus on seasonal, locally sourced ingredients and bold, harmonious flavors,
@@ -94,8 +103,10 @@
                 </p>
             </div>
             <div class="slide-in-left">
-                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=800&q=80"
-                    alt="Executive Chef" style="width: 100%; border-radius: 10px; box-shadow: var(--shadow);">
+                <div style="max-width: 400px; margin: 0 auto;"> <!-- Reduced Image Container -->
+                    <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=800&q=80"
+                        alt="Executive Chef" style="width: 100%; border-radius: 10px; box-shadow: var(--shadow);">
+                </div>
             </div>
         </div>
     </section>

@@ -279,6 +279,82 @@ header {
     cursor: pointer;
 }
 
+/* Default Hero Styles (Desktop) */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero_bg.jpg') no-repeat center/cover;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    /* Ensure centering works on desktop too */
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Mobile Hero Adjustment for Index.html */
+@media (max-width: 768px) {
+    #hero {
+        background: none !important;
+        height: auto !important;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Stack from top */
+        padding-top: 80px;
+        /* Header space */
+    }
+
+    #hero::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50vh;
+        /* Image takes top half */
+        min-height: 300px;
+        background: url('../images/hero_bg.jpg') no-repeat center/cover;
+        border-radius: 0 0 20px 20px;
+        margin-bottom: 40px;
+        flex-shrink: 0;
+    }
+
+    #hero .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Center content vertically in remaining space */
+        align-items: center;
+        padding-bottom: 40px;
+        color: var(--text-color) !important;
+    }
+
+    /* Force text colors for the white background mobile layout */
+    #hero h1 {
+        color: var(--text-color) !important;
+        text-shadow: none !important;
+        font-size: 2.5rem !important;
+        margin-bottom: 20px;
+    }
+
+    #hero p {
+        color: var(--text-color) !important;
+        text-shadow: none !important;
+        opacity: 0.9;
+        margin-bottom: 30px;
+    }
+
+    #hero .btn {
+        margin-top: 10px;
+    }
+
+    /* Home 2 Tablet Fixes */
+    .reservation-grid,
+    .contact-grid {
+        gap: 30px;
+    }
+}
+
 @media (max-width: 968px) {
     .nav-links {
         display: none;
