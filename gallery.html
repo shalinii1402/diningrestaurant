@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Lumière Dining</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚜</text></svg>">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding-bottom: 80px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 300px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: #fff;
+            font-size: 2rem;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            opacity: 0;
+            transition: opacity 0.3s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-label {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.92);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 10px;
+            /* Hide scrollbar for cleaner look */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .lightbox-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .lightbox-title {
+            color: #fff;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+
+        .lightbox-grid img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeInImage 0.6s ease forwards;
+        }
+
+        /* Staggered animation delays via nth-child would be handled in CSS if static, but dynamic JS injection resets it. 
+           We'll keep simple animation here or add delays in JS. Let's keep it simple first. */
+
+        .lightbox-grid img:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .lightbox-grid img:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .lightbox-grid img:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInImage {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-grid img {
+                height: 250px;
+            }
+
+            .lightbox-title {
+                font-size: 2rem;
+            }
+
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span style="font-size: 2rem;">⚜</span> Lumière
+                </a>
+                <div class="hamburger">☰</div>
+                <ul class="nav-links">
+                    <li class="nav-item dropdown">
+                        <a href="index.html">Home ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home-2.html">Home 2 (Modern)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="about.html">About Us</a></li>
+                    <li class="nav-item"><a href="reservation.html">Reservation</a></li>
+                    <li class="nav-item"><a href="menu.html">Tasting Menu</a></li>
+                    <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="theme-toggle" id="theme-toggle"><span>🌞</span></button>
+                    <a href="login.html" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.8rem;">Login</a>
+                    <a href="signup.html" class="btn" style="padding: 8px 20px; font-size: 0.8rem;">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div style="height: 100px;"></div>
+
+    <div class="container" style="padding-top: 60px; padding-bottom: 80px;">
+        <h1 class="fade-in" style="text-align: center; margin-bottom: 24px;">A Visual Feast</h1>
+        <p class="fade-in"
+            style="text-align: center; max-width: 800px; margin: 0 auto 60px auto; opacity: 0.8; font-size: 1.05rem; line-height: 1.8;">
+            Step inside Lumière through moments captured—from the exquisite plating of our signature dishes and
+            handcrafted cocktails to the intimate warmth of our interiors and the vibrant artistry of our kitchen. Each
+            image tells a story of passion, precision, and the pursuit of culinary perfection.
+        </p>
+
+        <div class="gallery-grid">
+            <!-- Items 1-6 -->
+            <div class="gallery-item pop-in" data-category="Atmosphere" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"
+                    alt="Atmosphere">
+                <div class="gallery-overlay"><span>+</span></div>
+                <div class="gallery-label" style="text-align: center;">Atmosphere<span
+                        style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 5px;">Where elegance
+                        meets warmth</span></div>
+            </div>
+            <div class="gallery-item pop-in" data-category="Plating" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+                    alt="Plating">
+                <div class="gallery-overlay"><span>+</span></div>
+                <div class="gallery-label" style="text-align: center;">Plating<span
+                        style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 5px;">Culinary
+                        artistry on every plate</span></div>
+            </div>
+            <div class="gallery-item pop-in" data-category="Cocktails" style="transition-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+                    alt="Cocktails">
+                <div class="gallery-overlay"><span>+</span></div>
+                <div class="gallery-label" style="text-align: center;">Cocktails<span
+                        style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 5px;">Crafted to
+                        perfection</span></div>
+            </div>
+            <div class="gallery-item pop-in" data-category="Kitchen" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80"
+                    alt="Kitchen">
+                <div class="gallery-overlay"><span>+</span></div>
+                <div class="gallery-label" style="text-align: center;">Kitchen<span
+                        style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 5px;">Precision behind
+                        the scenes</span></div>
+            </div>
+            <div class="gallery-item pop-in" data-category="Ingredients" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=800&q=80"
+                    alt="Ingredients">
+                <div class="gallery-overlay"><span>+</span></div>
+                <div class="gallery-label" style="text-align: center;">Ingredients<span
+                        style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 5px;">Fresh &
+                        sustainable</span></div>
+            </div>
+            <div class="gallery-item pop-in" data-category="Events" style="transition-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80"
+                    alt="Events">
+                <div class="gallery-overlay"><span>+</span></div>
+                <div class="gallery-label" style="text-align: center;">Events<span
+                        style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 5px;">Celebrations
+                        made unforgettable</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <h2 id="lightbox-title" class="lightbox-title">Category Title</h2>
+            <div class="lightbox-grid" id="lightbox-grid">
+                <!-- Images will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Section 1: Logo & Description -->
+                <div class="footer-section">
+                    <div class="logo">
+                        <span style="font-size: 2rem;">⚜</span> Lumière
+                    </div>
+                    <p style="margin-top: 20px; opacity: 0.7;">
+                        A culinary journey through taste and elegance. Experience the finest dining where tradition
+                        meets modernity.
+                    </p>
+                </div>
+
+                <!-- Section 2: Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="reservation.html">Reservation</a></li>
+                        <li><a href="menu.html">Tasting Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Resources -->
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 4: Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div style="opacity: 0.8; margin-bottom: 20px;">
+                        <p style="margin-bottom: 10px;">📍 123 Gourmet Ave, Food City</p>
+                        <p style="margin-bottom: 10px;">📞 +1 (555) 123-4567</p>
+                        <p>✉️ hello@lumiere.com</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" title="Instagram">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Lumière Dining. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Go to top">↑</button>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Gallery Data with Categories
+        const categories = {
+            'Atmosphere': [
+                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80',
+                'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=600',
+                'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&q=80'
+            ],
+            'Plating': [
+                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=600&q=80'
+            ],
+            'Cocktails': [
+                'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80',
+                'https://images.pexels.com/photos/1189257/pexels-photo-1189257.jpeg?auto=compress&cs=tinysrgb&w=600'
+            ],
+            'Kitchen': [
+                'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80',
+                'https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=600',
+                'https://images.pexels.com/photos/2696064/pexels-photo-2696064.jpeg?auto=compress&cs=tinysrgb&w=600'
+            ],
+            'Ingredients': [
+                'https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80'
+            ],
+            'Events': [
+                'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80',
+                'https://images.pexels.com/photos/5638612/pexels-photo-5638612.jpeg?auto=compress&cs=tinysrgb&w=600',
+                'https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=600'
+            ]
+        };
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxGrid = document.getElementById('lightbox-grid');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const category = item.getAttribute('data-category');
+                const images = categories[category];
+
+                if (images) {
+                    lightboxTitle.textContent = category;
+                    lightboxGrid.innerHTML = images.map(src => `<img src="${src}" alt="${category}">`).join('');
+                    lightbox.classList.add('active');
+                }
+            });
+        });
+
+        // Close Interactions
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>
