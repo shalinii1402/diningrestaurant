@@ -1149,6 +1149,28 @@ footer {
     }
 }
 
+/* Chef's Philosophy Image */
+.chef-philosophy-img {
+    width: 60%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .chef-philosophy-img {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .chef-philosophy-img {
+        width: 95%;
+    }
+}
+
 .contact-info-item {
     margin-bottom: 15px;
     font-size: 1.1rem;
