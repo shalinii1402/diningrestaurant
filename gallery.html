@@ -196,11 +196,12 @@
 
         @media (max-width: 768px) {
             .lightbox-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
 
             .lightbox-grid img {
-                height: 250px;
+                height: 150px;
             }
 
             .lightbox-title {
