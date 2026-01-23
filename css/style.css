@@ -405,14 +405,16 @@ header {
 #hero {
     position: relative;
     width: 100%;
-    min-height: 70vh;
+    min-height: 85vh;
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    /* Changed from center to flex-start to ensure top visibility */
     text-align: center !important;
     color: #ffffff;
     overflow: hidden;
-    padding: 180px 20px 100px 20px;
+    padding: 200px 20px 100px 20px;
+    /* Increased top padding to clear header */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -441,6 +443,8 @@ header {
     justify-content: center !important;
     margin: 0 auto !important;
     text-align: center !important;
+    padding-top: 20px;
+    /* Added slight inner padding */
 }
 
 .hero-content h1 {
