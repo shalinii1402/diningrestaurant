@@ -1175,7 +1175,7 @@ footer {
 
 /* Header Spacer */
 .header-spacer {
-    height: 100px;
+    height: 80px;
 }
 
 @media (max-width: 768px) {
