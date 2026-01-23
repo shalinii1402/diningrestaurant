@@ -140,26 +140,35 @@ ul {
     padding: 0 20px;
 }
 
+section {
+    padding: 120px 0;
+    /* Editorial spacing for premium feel */
+}
+
 /* Button Styles */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 38px;
     background-color: var(--primary-color);
-    color: #fff;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     border-radius: 50px;
+    /* Pillow shape */
     border: 2px solid var(--primary-color);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.3);
 }
 
 .btn:hover {
     background-color: transparent;
     color: var(--primary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 163, 115, 0.5);
 }
 
 .btn-outline {
@@ -402,17 +411,17 @@ header {
 .premium-hero {
     position: relative;
     width: 100%;
-    height: 60vh;
-    /* Consistent compressed height */
-    min-height: 450px;
+    height: 100vh;
+    /* Full screen for ultimate premium impact */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #ffffff;
     overflow: hidden;
-    /* Account for fixed header */
-    padding-top: 80px;
+    /* Balanced padding ensures mathematical centering in the visible area */
+    padding: 100px 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -425,7 +434,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
     z-index: 1;
 }
 
@@ -433,39 +442,46 @@ header {
     position: relative;
     z-index: 2;
     max-width: 900px;
-    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 4.5rem;
+    /* Bold, editorial typography */
+    margin: 0 0 24px 0;
+    /* Reset for perfect centering */
+    line-height: 1.1;
+    font-weight: 700;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-    opacity: 0.9;
-    line-height: 1.6;
+    font-size: 1.3rem;
+    margin: 0 0 45px 0;
+    /* Clear spacing before button */
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    opacity: 0.95;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
     .premium-hero {
         height: auto;
-        min-height: 500px;
-        padding-top: 70px;
+        min-height: 100vh;
+        padding: 120px 20px 80px 20px;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
