@@ -582,24 +582,36 @@ img {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 30px;
+        /* Enhanced padding for mobile */
+    }
+
     .about-content-grid {
         display: flex;
         flex-direction: column;
         margin-bottom: 60px;
-        /* Increased margin for better separation */
         gap: 40px;
-        /* Increased gap */
         direction: ltr !important;
-        /* Ensure LTR on mobile so Image (1st in DOM) stays on top */
+        text-align: center;
+        /* Center text on mobile */
+    }
+
+    .about-content-grid ul {
+        display: inline-block;
+        text-align: left;
+        /* Keep list items left-aligned for readability */
+        margin-top: 20px;
     }
 
     .about-img {
         height: auto !important;
-        /* Auto height as requested */
         width: 100%;
         max-height: 500px;
-        /* Prevent excessively tall images */
         object-fit: cover;
+        margin: 0 auto;
+        /* Center image */
+        display: block;
     }
 }
 
@@ -1174,17 +1186,35 @@ footer {
     color: var(--text-color);
 }
 
-/* Full Width Map */
+/* Full Width Map -> Balanced Container Map */
 .full-width-map-container {
     width: 100%;
-    height: 500px;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto 60px auto;
+    /* Centered with bottom spacing */
     position: relative;
     background: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
 @media (max-width: 768px) {
     .full-width-map-container {
-        height: 400px;
+        height: 350px;
+        /* Reduced tablet height */
+        width: 90%;
+        /* Add some side spacing on tablet */
+    }
+}
+
+@media (max-width: 576px) {
+    .full-width-map-container {
+        height: 300px;
+        /* Reduced mobile height */
+        width: 90%;
+        /* Add ample side margin */
     }
 }
 
