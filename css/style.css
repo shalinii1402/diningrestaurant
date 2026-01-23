@@ -412,7 +412,7 @@ header {
     text-align: center !important;
     color: #ffffff;
     overflow: hidden;
-    padding: 120px 20px 80px 20px;
+    padding: 180px 20px 100px 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -465,8 +465,8 @@ header {
 
 @media (max-width: 768px) {
     .premium-hero {
-        min-height: 50vh;
-        padding: 100px 20px 60px 20px;
+        min-height: 60vh;
+        padding: 180px 20px 80px 20px;
     }
 
     .hero-content h1 {
