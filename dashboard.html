@@ -351,23 +351,30 @@
             }
 
             .top-header {
+                position: relative;
                 flex-direction: column;
                 align-items: flex-start;
             }
 
             .header-actions {
-                width: 100%;
-                justify-content: space-between;
-                flex-direction: column;
-                gap: 15px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: auto;
+                flex-direction: row;
+                gap: 10px;
+                /* Small gap between buttons */
             }
 
             .header-actions .btn,
             .header-actions .btn-outline {
-                width: 100%;
+                width: auto;
                 text-align: center;
-                display: block;
-                /* Ensure it behaves as a block for width */
+                display: inline-block;
+                padding: 6px 12px;
+                /* Reduced padding */
+                font-size: 0.75rem;
+                /* Smaller font */
             }
         }
     </style>
