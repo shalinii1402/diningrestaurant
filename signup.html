@@ -50,6 +50,16 @@
                     <input type="password" id="password" class="form-control" placeholder="Create a password" required>
                     <span class="error-message">Password is required (min 6 chars).</span>
                 </div>
+                <div class="form-group" style="text-align: left; margin-bottom: 20px;">
+                    <label
+                        style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: var(--text-color); opacity: 0.9;">
+                        <input type="checkbox" id="terms" style="accent-color: var(--primary-color); margin-top: 3px;"
+                            required>
+                        <span>I agree to the <a href="#" style="color: var(--primary-color);">Terms and
+                                Conditions</a></span>
+                    </label>
+                    <span class="error-message">You must agree to the terms.</span>
+                </div>
                 <button type="submit" class="btn" style="width: 100%;">Create Account</button>
             </form>
 
@@ -127,6 +137,15 @@
                 password.nextElementSibling.innerText = "Password must be at least 6 characters.";
                 password.nextElementSibling.style.display = 'block';
                 isValid = false;
+            }
+
+            // Terms check
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
+                terms.parentElement.nextElementSibling.style.display = 'block';
+                isValid = false;
+            } else {
+                terms.parentElement.nextElementSibling.style.display = 'none';
             }
 
             if (isValid) {
