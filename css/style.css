@@ -1073,6 +1073,17 @@ footer {
     }
 }
 
+/* Header Spacer */
+.header-spacer {
+    height: 100px;
+}
+
+@media (max-width: 768px) {
+    .header-spacer {
+        height: 80px;
+    }
+}
+
 /* Contact Page Specifics */
 .contact-hero {
     background-image: url('../images/contact-hero.png');
@@ -1087,7 +1098,8 @@ footer {
     align-items: center;
     text-align: center;
     color: #ffffff;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    /* Reduced from 60px */
 }
 
 .contact-hero::before {
@@ -1124,13 +1136,15 @@ footer {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    /* Reduced from 40px */
     color: var(--primary-color);
 }
 
 .premium-form-container {
     max-width: 700px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 40px auto;
+    /* Reduced from 60px */
     background: var(--card-bg);
     padding: 40px;
     border-radius: 15px;
@@ -1140,7 +1154,8 @@ footer {
 
 .contact-details-stacked {
     text-align: center;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 40px auto;
+    /* Reduced from 60px */
     max-width: 800px;
     padding: 40px;
     background: var(--bg-color);
