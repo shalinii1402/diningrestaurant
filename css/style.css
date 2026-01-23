@@ -574,6 +574,13 @@ p {
     /* Reset text direction for children */
 }
 
+/* Global Responsive Image */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 @media (max-width: 768px) {
     .about-content-grid {
         display: flex;
@@ -587,9 +594,11 @@ p {
     }
 
     .about-img {
-        height: 500px !important;
-        /* Increased height as requested */
+        height: auto !important;
+        /* Auto height as requested */
         width: 100%;
+        max-height: 500px;
+        /* Prevent excessively tall images */
         object-fit: cover;
     }
 }
