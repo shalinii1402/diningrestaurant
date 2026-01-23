@@ -147,8 +147,8 @@ ul {
 }
 
 section {
-    padding: 120px 0;
-    /* Editorial spacing for premium feel */
+    padding: 80px 0;
+    /* Balanced spacing for premium feel */
 }
 
 /* Button Styles */
@@ -522,8 +522,8 @@ header {
 
     /* General responsive padding adjustments */
     section {
-        padding: 60px 0 !important;
-        /* Balanced spacing */
+        padding: 40px 0 !important;
+        /* Compact spacing for mobile */
         min-height: auto !important;
         /* Allow sections to shrink */
     }
@@ -595,7 +595,7 @@ header {
 /* Section Basics - Optimized Spacing */
 section {
     padding: 80px 0;
-    /* Increased for better breathing room */
+    /* Compact yet elegant spacing */
     position: relative;
     /* Ensure containment */
     z-index: 1;
