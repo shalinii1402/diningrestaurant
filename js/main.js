@@ -8,22 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         body.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            icon.textContent = '🌞';
-        }
     }
 
-    themeToggle.addEventListener('click', () => {
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            icon.textContent = '🌙';
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
+    if (themeToggle) {
+        // Initialize icon based on current theme or default
+        if (currentTheme === 'dark') {
             icon.textContent = '🌞';
+        } else {
+            // If theme is light or not set (default light), ensure icon allows switching to dark
+            // But if our CSS defaults to light, we want the moon icon to switch to dark.
+            // If the body has data-theme="dark", it's dark.
+            // Since we are removing data-theme="dark" from HTML, default is light.
+            // Moon icon means "Click to go Dark" (usually). 
+            // Wait, previous code:
+            // if dark -> Sun (Click to go Light)
+            // if light -> Moon (Click to go Dark)
+            icon.textContent = body.getAttribute('data-theme') === 'dark' ? '🌞' : '🌙';
         }
-    });
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                icon.textContent = '🌙';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.textContent = '🌞';
+            }
+        });
+    }
 
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
