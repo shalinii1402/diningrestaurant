@@ -325,11 +325,7 @@ header {
         font-size: 1.3rem;
     }
 
-    .nav-buttons .btn,
-    .nav-buttons .btn-outline {
-        display: none;
-        /* Hide buttons on mobile to prevent navbar crowding */
-    }
+    /* Container padding adjustment remains here */
 
     .theme-toggle {
         font-size: 1.1rem;
@@ -587,12 +583,17 @@ header {
         display: block;
         font-size: 1.6rem;
         order: 2;
-        margin-left: 15px;
+        margin-left: 20px;
     }
 
     .nav-buttons {
         margin-left: auto;
         order: 1;
+    }
+
+    .nav-buttons .btn,
+    .nav-buttons .btn-outline {
+        display: none;
     }
 
     .dropdown-menu {
@@ -605,7 +606,21 @@ header {
         padding: 0;
         margin-top: 10px;
         white-space: normal;
-        /* Allow wrapping in mobile menu if needed, or keep nowrap */
+    }
+}
+
+/* Optimization for Desktop menu on medium screens to prevent overlap */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .nav-links {
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-buttons {
+        gap: 10px;
     }
 }
 
