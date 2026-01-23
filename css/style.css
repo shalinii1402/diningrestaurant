@@ -454,6 +454,16 @@ header {
     width: 100%;
 }
 
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
 .hero-content p {
     font-size: 1.3rem;
     margin: 0 auto 45px auto !important;
@@ -738,6 +748,31 @@ p {
 .about-content-grid.reverse>* {
     direction: ltr;
     /* Reset text direction for children */
+}
+
+/* Experience Grid (Unified) */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .about-content-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Global Responsive Image */
