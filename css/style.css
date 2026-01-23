@@ -865,8 +865,11 @@ footer {
 
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     margin-top: 25px;
+    justify-content: center;
+    /* Ensure they are centered by default */
+    flex-wrap: wrap;
 }
 
 .social-icon {
@@ -956,6 +959,31 @@ footer {
 .form-control:focus {
     outline: none;
     border-color: var(--primary-color);
+}
+
+/* Newsletter Specific */
+.newsletter-wrapper {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+    .newsletter-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .newsletter-wrapper .form-control {
+        width: 100% !important;
+        margin: 0;
+    }
+
+    .newsletter-wrapper .btn {
+        width: 100%;
+    }
 }
 
 /* Modal */
