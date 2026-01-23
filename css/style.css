@@ -553,7 +553,7 @@ header {
 }
 
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .nav-links {
         display: none;
         position: absolute;
@@ -582,6 +582,13 @@ header {
     .hamburger {
         display: block;
         font-size: 1.6rem;
+        order: 2;
+        margin-left: 15px;
+    }
+
+    .nav-buttons {
+        margin-left: auto;
+        order: 1;
     }
 
     .dropdown-menu {
@@ -593,6 +600,8 @@ header {
         background: transparent;
         padding: 0;
         margin-top: 10px;
+        white-space: normal;
+        /* Allow wrapping in mobile menu if needed, or keep nowrap */
     }
 }
 
