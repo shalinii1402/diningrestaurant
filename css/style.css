@@ -267,6 +267,7 @@ header {
     border-radius: 8px;
     padding: 10px 0;
     z-index: 1001;
+    white-space: nowrap;
 }
 
 .dropdown:hover .dropdown-menu {
