@@ -568,6 +568,10 @@ header {
         border-bottom: 2px solid var(--primary-color);
         z-index: 1000;
         text-align: center;
+        max-height: calc(100vh - 80px);
+        /* Fill rest of screen */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
     }
 
     .nav-links.active {
