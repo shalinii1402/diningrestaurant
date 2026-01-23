@@ -222,8 +222,8 @@ header {
 /* Mobile Navbar Fix for Overflow */
 @media (max-width: 550px) {
     .container {
-        padding: 0 15px;
-        /* Slightly reduce container padding */
+        padding: 0 25px;
+        /* Increased padding to prevent text cutoff */
     }
 
     .navbar {
@@ -578,15 +578,19 @@ p {
     .about-content-grid {
         display: flex;
         flex-direction: column;
-        margin-bottom: 40px;
-        /* Further reduced for mobile */
-        gap: 30px;
+        margin-bottom: 60px;
+        /* Increased margin for better separation */
+        gap: 40px;
+        /* Increased gap */
         direction: ltr !important;
         /* Ensure LTR on mobile so Image (1st in DOM) stays on top */
     }
 
     .about-img {
-        height: 300px !important;
+        height: 500px !important;
+        /* Increased height as requested */
+        width: 100%;
+        object-fit: cover;
     }
 }
 
