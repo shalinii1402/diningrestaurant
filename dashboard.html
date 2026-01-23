@@ -413,6 +413,22 @@
                 white-space: nowrap;
                 /* Prevent text wrapping */
             }
+
+            .mobile-logo-dashboard {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--text-color);
+                text-decoration: none;
+                margin-left: 10px;
+            }
+        }
+
+        .mobile-logo-dashboard {
+            display: none;
         }
     </style>
 </head>
@@ -530,6 +546,9 @@
                             <line x1="3" y1="18" x2="21" y2="18"></line>
                         </svg>
                     </button>
+                    <a href="index.html" class="mobile-logo-dashboard">
+                        <span>⚜</span> Lumière
+                    </a>
                     <div class="user-welcome">
                         <h2>Welcome Back, Guest!</h2>
                         <span class="user-role">Premium Member</span>
