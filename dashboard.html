@@ -339,21 +339,46 @@
 
         @media (max-width: 600px) {
             .main-content {
-                padding: 20px;
+                padding: 15px;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr;
             }
 
-            .user-welcome h2 {
-                font-size: 1.4rem;
-            }
-
+            /* Header Specific Mobile Styles */
             .top-header {
                 position: relative;
-                flex-direction: column;
-                align-items: flex-start;
+                padding-bottom: 10px;
+                /* Space for stacked content */
+            }
+
+            .header-left-section {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .mobile-toggle {
+                margin-top: 2px;
+                /* Align with buttons visually */
+            }
+
+            .user-welcome {
+                width: 100%;
+                /* Force to new line */
+                margin-top: 15px;
+                /* Space between toggle/buttons and text */
+                padding-left: 5px;
+            }
+
+            .user-welcome h2 {
+                font-size: 1.2rem;
+                /* Reduced size */
+                margin-bottom: 2px;
+            }
+
+            .user-welcome .user-role {
+                font-size: 0.8rem;
             }
 
             .header-actions {
@@ -362,19 +387,18 @@
                 right: 0;
                 width: auto;
                 flex-direction: row;
-                gap: 10px;
-                /* Small gap between buttons */
+                gap: 8px;
             }
 
             .header-actions .btn,
             .header-actions .btn-outline {
                 width: auto;
-                text-align: center;
                 display: inline-block;
-                padding: 6px 12px;
-                /* Reduced padding */
-                font-size: 0.75rem;
-                /* Smaller font */
+                padding: 5px 10px;
+                /* Smaller button padding */
+                font-size: 0.7rem;
+                /* Smaller button font */
+                height: auto;
             }
         }
     </style>
@@ -484,7 +508,7 @@
         <main class="main-content">
             <!-- Header -->
             <header class="top-header">
-                <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="header-left-section" style="display: flex; align-items: center; gap: 15px;">
                     <button class="mobile-toggle" id="menuBtn">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
