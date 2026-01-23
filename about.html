@@ -52,19 +52,20 @@
         </div>
     </header>
 
-    <div style="height: 100px;"></div> <!-- Spacer for fixed header -->
-
-    <section class="container">
-        <div style="text-align: center; margin-bottom: 80px;" class="fade-in">
-            <h1 style="font-size: 3rem; margin-bottom: 24px;">Our Story</h1>
-            <p style="max-width: 800px; margin: 0 auto; opacity: 0.8; font-size: 1.05rem; line-height: 1.8;">
-                Founded with a vision to redefine fine dining, Lumière blends culinary craftsmanship with timeless
-                elegance. Our journey began with a simple belief: that dining should be an immersive experience, a
-                harmony of taste, ambiance, and service. Over the years, we have grown from a hidden gem into a
-                destination for verified food lovers, yet our commitment to quality and hospitality remains unchanged.
-            </p>
+    <!-- Hero Section -->
+    <section class="premium-hero"
+        style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-content">
+            <h1 class="fade-in">Our Story</h1>
+            <p class="fade-in">Founded with a vision to redefine fine dining, Lumière blends culinary craftsmanship with
+                timeless elegance. Discover the passion behind our journey.</p>
+            <a href="#core-values" class="btn fade-in">Discover More</a>
         </div>
+    </section>
 
+    <!-- Content Sections (Min 5) -->
+    <!-- Section 1: Core Values -->
+    <section id="core-values" class="container">
         <div class="about-content-grid">
             <div class="slide-in-left">
                 <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
@@ -81,21 +82,20 @@
                     <li>Artisanal cooking methods that respect tradition.</li>
                     <li>Personalized guest experiences that feel genuine and warm.</li>
                 </ul>
-                <div style="margin-top: 30px; text-align: center;">
-                    <a href="menu.html" class="btn">Explore Menu</a>
-                </div>
             </div>
         </div>
+    </section>
 
-        <div class="about-content-grid reverse">
-            <!-- direction rtl was used for swapping, handled via class now -->
+    <!-- Section 2: Executive Chef -->
+    <section style="background-color: var(--card-bg);">
+        <div class="container about-content-grid reverse">
             <div class="slide-in-left">
                 <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80"
                     alt="Chef" class="about-img">
             </div>
             <div class="fade-in">
                 <h2 style="margin-bottom: 24px;">Meet Executive Chef Antoine</h2>
-                <p style="margin-top: 20px; opacity: 0.8; line-height: 1.8;">
+                <p style="opacity: 0.8; line-height: 1.8;">
                     With over 20 years of experience in the world's top kitchens, Chef Antoine brings a unique flair to
                     Lumière. His philosophy is simple yet profound: "Food is not just sustenance, it is an emotion." He
                     leads our team with passion, constantly pushing the boundaries of flavor while staying true to the
@@ -103,17 +103,58 @@
                 </p>
             </div>
         </div>
+    </section>
 
-        <div class="fade-in" style="margin-bottom: 60px;">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
-                alt="The Art of Dining" class="responsive-landscape-img" style="margin-bottom: 40px;">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h2 style="margin-bottom: 24px;">Our Philosophy</h2>
-                <p style="font-size: 1.15rem; line-height: 1.8; opacity: 0.8; font-style: italic;">
+    <!-- Section 3: Organic Partnerships -->
+    <section class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 class="fade-in" style="margin-bottom: 24px;">Rooted in Nature</h2>
+            <p class="fade-in" style="opacity: 0.8; line-height: 1.8; margin-bottom: 40px;">
+                Our relationships with local artisans and organic farms are the foundation of our menu. We believe in
+                transparency and sustainability, ensuring every ingredient is at its peak of flavor.
+            </p>
+            <div class="fade-in"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=400&q=80"
+                    alt="Fresh Veggies" style="width: 100%; border-radius: 10px; height: 200px; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=400&q=80"
+                    alt="Farmland" style="width: 100%; border-radius: 10px; height: 200px; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1495539406979-bf61750d38ad?auto=format&fit=crop&w=400&q=80"
+                    alt="Harvest" style="width: 100%; border-radius: 10px; height: 200px; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Architecture & Design -->
+    <section style="background-color: var(--card-bg);">
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
+            <div class="fade-in">
+                <h2>Timeless Ambiance</h2>
+                <p style="opacity: 0.8; line-height: 1.8; margin-top: 20px;">
+                    Our dining room was designed to reflect the elegance of our cuisine. Soft lighting, natural
+                    textures, and a warm color palette create an intimate space where guests can truly unwind.
+                </p>
+            </div>
+            <div class="slide-in-right">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                    alt="Interior Design" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Our Philosophy -->
+    <section class="container">
+        <div class="fade-in" style="text-align: center;">
+            <h2 style="margin-bottom: 24px;">Our Philosophy</h2>
+            <div
+                style="max-width: 800px; margin: 0 auto; padding: 40px; background: var(--card-bg); border-radius: 20px; box-shadow: var(--shadow);">
+                <p
+                    style="font-size: 1.2rem; line-height: 1.8; opacity: 0.8; font-style: italic; color: var(--primary-color);">
                     "We focus on quality over quantity, simplicity refined by technique, and hospitality rooted in
                     warmth."
                 </p>
-                <p style="font-size: 1.05rem; line-height: 1.8; opacity: 0.8; margin-top: 20px;">
+                <p style="font-size: 1.05rem; line-height: 1.8; opacity: 0.8; margin-top: 25px;">
                     Every guest is welcomed as part of our story, and every meal is an opportunity to create a lasting
                     memory. We invite you to join us and experience the art of dining in its purest form.
                 </p>

@@ -119,27 +119,24 @@
         </div>
     </header>
 
-    <div style="height: 100px;"></div>
-
-    <section class="container form-section">
-        <!-- Intro Section -->
-        <div class="fade-in" style="text-align: center; margin-bottom: 60px;">
-            <span
-                style="color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; display: block;">Reservations</span>
-            <h1 style="font-size: 3rem; margin-bottom: 24px;">Begin Your Dining Journey</h1>
-            <p style="max-width: 700px; margin: 0 auto; opacity: 0.8; line-height: 1.8; font-size: 1.05rem;">
-                Immerse yourself in an atmosphere of refined elegance where every detail is curated for your pleasure.
-                Whether for an intimate evening or a grand celebration, we await the opportunity to serve you.
-            </p>
+    <!-- Hero Section -->
+    <section class="premium-hero"
+        style="background-image: url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+        <div class="hero-content">
+            <h1 class="fade-in">Reservations</h1>
+            <p class="fade-in">Secure your table at Lumière and prepare for a journey of refined elegance and culinary
+                artistry. We look forward to hosting you.</p>
+            <a href="#reservation-form-section" class="btn fade-in">Book Now</a>
         </div>
+    </section>
 
+    <!-- Content Sections (Min 5) -->
+    <!-- Section 1: The Form -->
+    <section id="reservation-form-section" class="container form-section">
         <div class="reservation-grid fade-in">
             <!-- Left: Form -->
             <div style="padding: 40px;">
                 <h2 style="text-align: center; margin-bottom: 24px;">Reserve Your Experience</h2>
-                <p style="text-align: center; margin-bottom: 30px; opacity: 0.8; line-height: 1.8; font-size: 1.05rem;">
-                    Secure your table and allow us to curate a memorable dining experience tailored just for you.
-                </p>
                 <form id="reservationForm" novalidate>
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -185,9 +182,6 @@
                         </select>
                     </div>
                     <button type="submit" class="btn">Confirm Reservation</button>
-                    <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">
-                        *For parties larger than 6 or special dietary requests, please contact us directly.
-                    </p>
                 </form>
             </div>
 
@@ -197,6 +191,81 @@
                     <h3>A Taste of Luxury</h3>
                     <p>Experience culinary perfection in an ambiance designed for memories.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Private Dining -->
+    <section style="background-color: var(--card-bg);">
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
+            <div class="slide-in-left">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+                    alt="Private Dining" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+            </div>
+            <div class="fade-in">
+                <h2>Private Dining & Events</h2>
+                <p style="opacity: 0.8; line-height: 1.8; margin-top: 20px;">
+                    Whether it's an intimate board meeting, a rehearsal dinner, or a milestone celebration, our private
+                    dining rooms provide a sophisticated backdrop for your most important moments.
+                </p>
+                <div style="margin-top: 30px;">
+                    <a href="contact.html" class="btn btn-outline">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Visual Ambiance -->
+    <section class="container" style="text-align: center;">
+        <h2 class="fade-in" style="margin-bottom: 40px;">The Lumière Experience</h2>
+        <div class="fade-in"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?auto=format&fit=crop&w=600&q=80"
+                alt="Table Setting" style="width: 100%; border-radius: 10px; height: 300px; object-fit: cover;">
+            <img src="https://images.unsplash.com/photo-1550966841-3ee7adac1661?auto=format&fit=crop&w=600&q=80"
+                alt="Ambiance" style="width: 100%; border-radius: 10px; height: 300px; object-fit: cover;">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
+                alt="Lumiere Dish" style="width: 100%; border-radius: 10px; height: 300px; object-fit: cover;">
+        </div>
+    </section>
+
+    <!-- Section 4: Cancellation Policy -->
+    <section style="background-color: var(--card-bg);">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2 class="fade-in" style="margin-bottom: 24px;">Planning Your Visit</h2>
+            <p class="fade-in" style="opacity: 0.8; line-height: 1.8; margin-bottom: 30px;">
+                To ensure a seamless experience for all our guests, we kindly ask for a 24-hour notice for any
+                cancellations or changes to your reservation. Valet parking is available for all guests during dinner
+                service.
+            </p>
+            <div class="fade-in"
+                style="display: flex; justify-content: center; gap: 40px; opacity: 0.6; font-size: 0.9rem;">
+                <div>🕒 Open Daily: 6:00 PM - 11:00 PM</div>
+                <div>👔 Dress Code: Business Casual</div>
+                <div>📍 Valet Parking Available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: FAQs -->
+    <section class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div class="fade-in">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Do you accommodate dietary restrictions?
+                </h3>
+                <p style="opacity: 0.8; font-size: 0.95rem;">Yes, our chefs are happy to adapt the menu to accommodate
+                    allergies or specific dietary needs with advance notice.</p>
+            </div>
+            <div class="fade-in" style="transition-delay: 0.1s;">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Is there a corkage fee?</h3>
+                <p style="opacity: 0.8; font-size: 0.95rem;">We offer a comprehensive wine list, but guests are welcome
+                    to bring personal bottles for a $35 corkage fee (limit 2 per table).</p>
+            </div>
+            <div class="fade-in" style="transition-delay: 0.2s;">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Do you allow children?</h3>
+                <p style="opacity: 0.8; font-size: 0.95rem;">Lumière offers a refined dining atmosphere best suited for
+                    guests aged 12 and above. We do not provide a children's menu.</p>
             </div>
         </div>
     </section>
