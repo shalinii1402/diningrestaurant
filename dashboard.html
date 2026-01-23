@@ -339,7 +339,8 @@
 
         @media (max-width: 600px) {
             .main-content {
-                padding: 15px;
+                padding: 25px 15px 15px 15px;
+                /* Increased top padding to prevent cut */
             }
 
             .stats-grid {
@@ -350,55 +351,65 @@
             .top-header {
                 position: relative;
                 padding-bottom: 10px;
-                /* Space for stacked content */
+                margin-bottom: 30px;
+                /* Adjust margin */
+                display: block;
+                /* Ensure block formatting context */
             }
 
             .header-left-section {
+                display: flex;
                 flex-wrap: wrap;
                 width: 100%;
+                align-items: center;
             }
 
             .mobile-toggle {
-                margin-top: 2px;
-                /* Align with buttons visually */
+                margin-top: 0;
+                padding: 0;
             }
 
             .user-welcome {
                 width: 100%;
-                /* Force to new line */
-                margin-top: 15px;
-                /* Space between toggle/buttons and text */
-                padding-left: 5px;
+                margin-top: 20px;
+                /* Increased space to clear buttons */
+                padding-left: 2px;
             }
 
             .user-welcome h2 {
-                font-size: 1.2rem;
-                /* Reduced size */
-                margin-bottom: 2px;
+                font-size: 1.3rem;
+                margin-bottom: 4px;
+                line-height: 1.2;
             }
 
             .user-welcome .user-role {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
             .header-actions {
                 position: absolute;
-                top: 0;
+                top: -5px;
+                /* Slight negative top to align with toggle if needed, or 0 */
                 right: 0;
                 width: auto;
+                display: flex;
                 flex-direction: row;
-                gap: 8px;
+                gap: 6px;
+                align-items: center;
             }
 
             .header-actions .btn,
             .header-actions .btn-outline {
                 width: auto;
                 display: inline-block;
-                padding: 5px 10px;
-                /* Smaller button padding */
-                font-size: 0.7rem;
-                /* Smaller button font */
+                padding: 4px 10px;
+                /* Compact padding */
+                font-size: 0.65rem;
+                /* Reduced font size */
                 height: auto;
+                line-height: 1.2;
+                white-space: nowrap;
+                /* Prevent text wrapping */
             }
         }
     </style>
