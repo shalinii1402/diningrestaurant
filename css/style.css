@@ -567,15 +567,16 @@ header {
         background-color: var(--nav-bg);
         /* Use nav-bg for consistency */
         flex-direction: column;
-        padding: 30px 20px;
+        padding: 20px 20px;
+        /* Reduced vertical padding */
         box-shadow: var(--shadow);
         border-bottom: 2px solid var(--primary-color);
         z-index: 1000;
         text-align: center;
         max-height: calc(100vh - 80px);
         /* Fill rest of screen */
-        overflow-y: auto;
-        /* Enable vertical scrolling */
+        overflow-y: hidden;
+        /* Disabled scrolling */
     }
 
     .nav-links.active {
@@ -583,8 +584,10 @@ header {
     }
 
     .nav-item {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
+        font-size: 1.1rem;
+        /* Slightly reduced */
+        margin-bottom: 15px;
+        /* Reduced margin */
     }
 
     .hamburger {
@@ -612,8 +615,16 @@ header {
         box-shadow: none;
         background: transparent;
         padding: 0;
-        margin-top: 10px;
+        margin-top: 5px;
+        /* Reduced margin */
         white-space: normal;
+    }
+
+    .dropdown-menu li {
+        margin-bottom: 8px;
+        /* Added spacing for sub-items */
+        font-size: 0.95rem;
+        /* Smaller sub-items */
     }
 }
 
