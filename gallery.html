@@ -214,76 +214,6 @@
                 font-size: 2.5rem;
             }
         }
-
-        /* Marquee Heading Styles */
-        .visual-feast-marquee {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            overflow: hidden;
-            padding: 20px 0;
-            margin-bottom: 40px;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        .marquee-content {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee-scroll 40s linear infinite;
-        }
-
-        .marquee-content span {
-            font-size: 10rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--text-color);
-            opacity: 0.08;
-            padding: 0 50px;
-            letter-spacing: -2px;
-            line-height: normal;
-        }
-
-        /* Overlay heading for readability */
-        .overlay-heading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            width: 100%;
-            text-align: center;
-        }
-
-        .overlay-heading h1 {
-            font-size: 4rem;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: capitalize;
-        }
-
-        @keyframes marquee-scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .marquee-content span {
-                font-size: 5rem;
-            }
-
-            .overlay-heading h1 {
-                font-size: 2.5rem;
-            }
-        }
     </style>
 </head>
 
@@ -322,22 +252,15 @@
         </div>
     </header>
 
-    <div style="height: 60px;"></div>
-
-    <section class="container" style="padding-top: 40px;">
-        <div class="visual-feast-marquee fade-in">
-            <div class="marquee-content">
-                <span>A Visual Feast</span>
-                <span>A Visual Feast</span>
-                <span>A Visual Feast</span>
-                <span>A Visual Feast</span>
-                <span>A Visual Feast</span>
-                <span>A Visual Feast</span>
-            </div>
-            <div class="overlay-heading">
-                <h1 style="margin:0;">A Visual Feast</h1>
-            </div>
+    <section class="premium-hero"
+        style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80'); margin-bottom: 60px;">
+        <div class="hero-content fade-in">
+            <h1>A Visual Feast</h1>
+            <p>Experience the art of culinary perfection through our lens.</p>
         </div>
+    </section>
+
+    <section class="container">
         <p class="fade-in"
             style="text-align: center; max-width: 800px; margin: 0 auto 60px auto; opacity: 0.8; font-size: 1.05rem; line-height: 1.8;">
             Step inside Lumière through moments captured—from the exquisite plating of our signature dishes and
