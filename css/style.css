@@ -203,7 +203,7 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     height: 80px;
 }
@@ -214,7 +214,8 @@ header {
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    /* Slightly reduced gap within logo */
 }
 
 .logo img {
@@ -225,6 +226,8 @@ header {
 .nav-links {
     display: flex;
     gap: 30px;
+    margin-left: 40px;
+    /* Reduced gap from logo */
 }
 
 .nav-item {
@@ -294,6 +297,8 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-left: auto;
+    /* Pushes buttons to the right */
 }
 
 .theme-toggle {
@@ -405,7 +410,8 @@ header {
     min-height: 65vh;
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
+    /* Changed from flex-start to center for exact centering */
     text-align: center !important;
     color: #ffffff;
     overflow: hidden;
@@ -963,6 +969,12 @@ footer {
 .form-control:focus {
     outline: none;
     border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(212, 163, 115, 0.1);
+    transform: translateX(5px);
+}
+
+.form-control:hover {
+    border-color: var(--primary-color);
 }
 
 /* Newsletter Specific */
@@ -1348,6 +1360,12 @@ footer {
     border-radius: 15px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.premium-form-container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
 }
 
 .contact-details-stacked {
@@ -1492,6 +1510,23 @@ footer {
     margin-bottom: 15px;
     font-size: 1.1rem;
     opacity: 0.8;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.contact-info-item:hover {
+    background: rgba(212, 163, 115, 0.05);
+    transform: translateX(10px);
+    opacity: 1;
+}
+
+.contact-info-item span {
+    transition: transform 0.3s ease;
+}
+
+.contact-info-item:hover span {
+    transform: scale(1.2);
 }
 
 /* Tablet/Mobile Adjustments for Menu Page */
