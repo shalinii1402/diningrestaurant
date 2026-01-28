@@ -566,78 +566,68 @@ header {
 @media (max-width: 1024px) {
     .nav-links {
         display: none;
-        position: absolute;
-        top: 80px;
+        position: fixed;
+        top: 70px;
+        /* Aligned with mobile header height */
         left: 0;
         width: 100%;
-        background-color: var(--nav-bg);
-        /* Use nav-bg for consistency */
+        height: calc(100vh - 70px);
+        background-color: var(--bg-color);
         flex-direction: column;
-        justify-content: flex-start;
-        /* Start from top to avoid clipping */
-        padding: 10px 20px;
-        /* Aggressively reduced padding to fit all items */
-        box-shadow: var(--shadow);
-        border-bottom: 2px solid var(--primary-color);
-        z-index: 1000;
-        text-align: center;
-        height: calc(100vh - 80px);
-        /* Force full height */
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        /* Keep scroll as safety net, but aim for fit */
-    }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .nav-links::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .nav-links {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
+        justify-content: center;
+        /* Center vertically since we want it to fit */
+        align-items: center;
+        padding: 0 20px;
+        box-shadow: none;
+        border-top: 1px solid var(--border-color);
+        z-index: 2000;
+        overflow-y: hidden;
+        /* No scrolling allowed */
+        gap: 0;
+        /* Remove gap, control/spacing via padding */
     }
 
     .nav-links.active {
         display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     .nav-item {
-        font-size: 0.95rem;
-        /* Slightly smaller for better fit */
-        margin-bottom: 2px;
-        /* Tightest minimal spacing */
         width: 100%;
-        /* Ensure proper alignment */
-        line-height: 1.4;
+        text-align: center;
+        margin-bottom: 0;
+        /* Compact fit */
     }
 
     .nav-item a {
         display: block;
-        padding: 5px 0;
-        /* Add touch target size via padding instead of margin */
+        padding: 8px 0;
+        /* Reduced padding */
+        font-size: 1.1rem;
+        /* Optimized font size */
+        font-weight: 500;
+        color: var(--text-color);
+        line-height: 1.2;
+        transition: color 0.3s ease;
     }
 
-    .hamburger {
-        display: block;
-        font-size: 1.6rem;
-        order: 2;
-        margin-left: 20px;
+    .nav-item a:hover,
+    .nav-item a.active {
+        color: var(--primary-color);
+        background: transparent;
     }
 
-    .nav-buttons {
-        margin-left: auto;
-        order: 1;
-    }
-
-    .nav-buttons .btn,
-    .nav-buttons .btn-outline {
-        display: none;
-    }
-
+    /* Submenu (Home dropdown) */
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -646,20 +636,49 @@ header {
         box-shadow: none;
         background: transparent;
         padding: 0;
-        margin-top: 0;
-        /* Zero margin */
-        white-space: normal;
-    }
-
-    .dropdown-menu li {
-        margin-bottom: 2px;
-        /* Tighter sub-item spacing */
-        font-size: 0.9rem;
+        margin: 0;
+        display: none;
+        /* Hide submenu to save space, or style very compactly - user said "Do not remove any menu items" */
+        /* Let's keep it visible but very compact if needed, or maybe just inline it */
+        display: block;
     }
 
     .dropdown-menu li a {
-        padding: 5px 20px;
-        /* Reduced vertical padding */
+        padding: 4px 0;
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
+
+    /* Hamburger & Header Mobile Elements */
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 10px;
+        order: 3;
+        color: var(--text-color);
+    }
+
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        /* Push group to right */
+        order: 2;
+        margin-right: 5px;
+    }
+
+    .nav-buttons .btn,
+    .nav-buttons .btn-outline {
+        display: none;
+        /* Hide login/signup buttons on mobile, rely on links */
+    }
+
+    /* Ensure theme toggle (inside nav-buttons) is visible */
+    .theme-toggle {
+        display: block;
+        font-size: 1.4rem;
+        padding: 5px;
     }
 }
 
@@ -686,15 +705,26 @@ header {
 @media (max-width: 1024px) {
     .mobile-auth-link {
         display: block;
-        border-top: 1px solid rgba(212, 163, 115, 0.2);
-        /* Separator */
-        margin-top: 5px;
-        padding-top: 5px;
+        width: 100%;
+    }
+
+    /* Separator before auth links */
+    .nav-item.mobile-auth-link:first-of-type {
+        border-top: 1px solid rgba(100, 100, 100, 0.1);
+        margin-top: 10px;
+        padding-top: 10px;
     }
 
     .mobile-auth-link a {
         color: var(--primary-color) !important;
         font-weight: 600;
+        padding: 5px 0;
+        /* Even more compact */
+    }
+
+    .mobile-auth-link a:hover {
+        background: rgba(212, 163, 115, 0.1);
+        border-radius: 5px;
     }
 }
 
