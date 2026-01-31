@@ -702,50 +702,51 @@ header {
     .mobile-auth-link {
         display: block;
         width: 100%;
-        max-width: 300px;
+        max-width: 220px;
         margin: 0 auto;
     }
 
     /* Separator before auth links */
     .nav-item.mobile-auth-link:nth-last-child(2) {
         border-top: 1px solid rgba(100, 100, 100, 0.1);
-        margin-top: 20px;
-        padding-top: 20px;
+        margin-top: 10px;
+        padding-top: 10px;
     }
 
     .mobile-auth-link a {
         display: block;
-        padding: 12px 24px;
+        padding: 5px 16px;
         border-radius: 50px;
         text-align: center;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: normal;
+        font-size: 1.1rem;
+        line-height: 1.2;
         transition: all 0.3s ease;
     }
 
     /* Login Link - Outline style */
     .nav-item.mobile-auth-link:nth-last-child(2) a {
         background: transparent;
-        border: 2px solid var(--primary-color);
+        border: 1.5px solid var(--primary-color);
         color: var(--primary-color) !important;
     }
 
     /* Sign Up Link - Solid style */
     .nav-item.mobile-auth-link:last-child {
-        margin-top: 12px;
+        margin-top: 8px;
     }
 
     .nav-item.mobile-auth-link:last-child a {
         background: var(--primary-color);
-        border: 2px solid var(--primary-color);
+        border: 1.5px solid var(--primary-color);
         color: #ffffff !important;
     }
 
     .mobile-auth-link a:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(212, 163, 115, 0.2);
+        box-shadow: 0 4px 10px rgba(212, 163, 115, 0.15);
     }
 }
 
